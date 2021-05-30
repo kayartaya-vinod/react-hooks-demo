@@ -20,6 +20,8 @@ export default function TodoForm() {
                     value={task}
                     onChange={(e) => setTask(e.target.value)}
                     className='form-control'
+                    placeholder='type in a task description and press RETURN key'
+                    autoFocus
                 />
             </form>
         </div>

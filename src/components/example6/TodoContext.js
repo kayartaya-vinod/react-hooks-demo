@@ -5,9 +5,9 @@ export const useTodoContext = () => useContext(TodoStore);
 
 export default function TodoContext({ children }) {
     const [todos, setTodos] = useState([
-        { id: 1, task: 'Get milk', finished: true },
-        { id: 2, task: 'Take bath', finished: true },
-        { id: 3, task: 'Do workout', finished: false },
+        { id: 1, task: 'Get milk', done: true },
+        { id: 2, task: 'Take bath', done: true },
+        { id: 3, task: 'Do workout', done: false },
     ]);
 
     const addTodo = (task) => {
@@ -27,8 +27,16 @@ export default function TodoContext({ children }) {
         }
     };
 
+    const deleteTodo = (id) => {
+        const index = todos.findIndex((t) => t.id === id);
+        if (index !== -1) {
+            todos.splice(index, 1);
+            setTodos([...todos]);
+        }
+    };
+
     return (
-        <TodoStore.Provider value={{ todos, addTodo, toggleDone }}>
+        <TodoStore.Provider value={{ todos, addTodo, toggleDone, deleteTodo }}>
             {children}
         </TodoStore.Provider>
     );
