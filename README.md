@@ -7,3 +7,4 @@
 1. Example3 - Uncontrolled inputs (useRef)
 1. Example4 - Context api and reducer (useContext, useReducer)
 1. Example5 - Reducer (no context api)
+1. Example5 - Context api (no reducer)

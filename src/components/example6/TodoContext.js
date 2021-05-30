@@ -3,6 +3,12 @@ import { createContext, useContext, useState } from 'react';
 export const TodoStore = createContext();
 export const useTodoContext = () => useContext(TodoStore);
 
+// This is a HOC (higher-order-component)
+// This component acts as a wrapper for all the "children" components
+// and shares it's state with them. Changes to the state is going to be reflected on
+// all the child components. We are doing prop-drilling, but intermediary components
+// need not pass the props from the parents to their children. Any child component at
+// any level of depth, can access the state by calling the "useTodoContext()" function.
 export default function TodoContext({ children }) {
     const [todos, setTodos] = useState([
         { id: 1, task: 'Get milk', done: true },
